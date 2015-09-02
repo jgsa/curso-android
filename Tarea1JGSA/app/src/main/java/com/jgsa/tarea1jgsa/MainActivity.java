@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.initColorHexadecimal();
-        this.initColorRGB();
+
+        // Inicializadores del layout
+        this.initColorHexadecimal(); // <- Para el del EditText
+        //this.initColorRGB(); // <- Para el de los radio buttons
     }
 
     @Override
