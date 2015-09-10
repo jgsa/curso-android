@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         // tendrá el adaptador.
         ListAdapter adaptadorFilaGenerica = new ArrayAdapter<String>(this.context, android.R.layout.simple_list_item_1, this.programas);
 
+        ListAdapter adaptadorConFilaCustomizada= new ArrayAdapter<String>(this.context, R.layout.mi_fila, R.id.textView1, this.programas);
+
 
         // Creamos un adaptador utilizando nuestra fila customizada en mi_fila.xml
         // el consturctor necesita como parámetros el layout y el ID del TextView
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         this.lista = (ListView) findViewById(R.id.listView);
 
         // Seleccionamos el adaptador que tendrá nuestra lista
-        this.lista.setAdapter(adaptadorFilaGenerica);
+        // this.lista.setAdapter(adaptadorFilaGenerica);
+        this.lista.setAdapter(adaptadorConFilaCustomizada);
 
 
         // Afrefamos un escuchador a la lista, cada vez que cualquier elemento de la qlista
