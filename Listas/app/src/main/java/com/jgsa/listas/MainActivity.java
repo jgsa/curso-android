@@ -36,21 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
         ListAdapter adaptadorConFilaCustomizada= new ArrayAdapter<String>(this.context, R.layout.mi_fila, R.id.textView1, this.programas);
 
-
-        // Creamos un adaptador utilizando nuestra fila customizada en mi_fila.xml
-        // el consturctor necesita como parámetros el layout y el ID del TextView
-        // dentro de
+        // Creamos un adaprado creado por nosotros;
+        ListAdapter adaptadorPropio = new MiAdaptador(this.context, 0, this.programas);
 
 
         // Hacemos referencia a la lista declarada en activity_main.xml
         this.lista = (ListView) findViewById(R.id.listView);
 
         // Seleccionamos el adaptador que tendrá nuestra lista
-        // this.lista.setAdapter(adaptadorFilaGenerica);
-        this.lista.setAdapter(adaptadorConFilaCustomizada);
+        //this.lista.setAdapter(adaptadorFilaGenerica);
+        //this.lista.setAdapter(adaptadorConFilaCustomizada);
+        this.lista.setAdapter(adaptadorPropio);
 
 
-        // Afrefamos un escuchador a la lista, cada vez que cualquier elemento de la qlista
+        // Agregamos un escuchador a la lista, cada vez que cualquier elemento de la qlista
         // sea seleccionada el método onItemClick será llamado automáticamente
         this.lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
