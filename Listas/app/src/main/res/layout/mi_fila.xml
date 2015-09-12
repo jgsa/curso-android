@@ -9,6 +9,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:textSize="30sp"
+        android:padding="15dp"
+        android:textColor="#0000FF"
+        android:text="New Text"
         android:textStyle="bold|italic"
         />
 
