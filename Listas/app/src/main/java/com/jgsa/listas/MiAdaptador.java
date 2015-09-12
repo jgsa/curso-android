@@ -16,10 +16,10 @@ public class MiAdaptador extends ArrayAdapter<String> {
     // tv que se mostrarán en la lista
     private final String[] programas;
 
-    // Clase estárica. ViewHolder es un patrón de diseño para listas que nos
+    // Clase estática. ViewHolder es un patrón de diseño para listas que nos
     // permite ahorrar recursos, reutilizando vistas en las listas ya creadas anteriormente
     static class ViewHolder {
-        // Demtrp deñ ViewHolder guardaremos el textView guardaremos el textView
+        // Demtro del ViewHolder guardaremos el textView guardaremos el textView
         // dentro del layout utilizado por el adaptador
         public TextView tv_programa;
 

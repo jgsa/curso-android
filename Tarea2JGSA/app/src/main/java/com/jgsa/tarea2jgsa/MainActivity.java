@@ -1,60 +1,48 @@
-package com.jgsa.listas;
+package com.jgsa.tarea2jgsa;
 
-import android.app.ListActivity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] programas =  { "Arrow", "The Flash", "The Walking Dead", "Breaking Bad",
-            "The Big Bang Theory", "Forever", "Lie to me" };
+
+    private String[] programas = { "Arrow", "Mr. Robot", "Parks and Recreation",
+                                    "Agents of S.H.I.E.L.D.", "Fargo", "Portlandia", "Daredevil" };
+    private int[] imagenes = { R.drawable.arrow, R.drawable.mrrobot, R.drawable.parksandrec,
+                               R.drawable.shield, R.drawable.fargo, R.drawable.portlandia, R.drawable.daredevil };
     private Context context;
     private ListView lista;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Usamos activity_main.xml como interfaz gráfica
+        // Usamos main_activity como interfaz gráfica
         setContentView(R.layout.activity_main);
 
         // Obtenemos el contexto de la aplicación
         this.context = MainActivity.this;
 
-        // Creamos un adaptador para nuestra lista, el constructor necesita como parámetros el
-        // contexto de la aplicación, el layout en el que mostrará y el contenido que
-        // tendrá el adaptador.
-        ListAdapter adaptadorFilaGenerica = new ArrayAdapter<String>(this.context, android.R.layout.simple_list_item_1, this.programas);
+        // Adaptador personalizado
+        ListAdapter adaptadorTV = new MiAdaptador(this.context, 0, this.programas, this.imagenes);
 
-        ListAdapter adaptadorConFilaCustomizada= new ArrayAdapter<String>(this.context, R.layout.mi_fila, R.id.textView1, this.programas);
-
-        // Creamos un adaprado creado por nosotros;
-        ListAdapter adaptadorPropio = new MiAdaptador(this.context, 0, this.programas);
-
-
-        // Hacemos referencia a la lista declarada en activity_main.xml
+        // Referenciamos la lista de activity_main y le seteamos el adaptador
         this.lista = (ListView) findViewById(R.id.listView);
+        this.lista.setAdapter(adaptadorTV);
 
-        // Seleccionamos el adaptador que tendrá nuestra lista
-        //this.lista.setAdapter(adaptadorFilaGenerica);
-        //this.lista.setAdapter(adaptadorConFilaCustomizada);
-        this.lista.setAdapter(adaptadorPropio);
-
-
-        // Agregamos un escuchador a la lista, cada vez que cualquier elemento de la qlista
-        // sea seleccionada el método onItemClick será llamado automáticamente
+        // Evento de click en los elementos de la lista
         this.lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Mostramos una notificación Toast con la opción seleccionada
                 Toast.makeText(context, "Has seleccionado: " + programas[position], Toast.LENGTH_SHORT).show();
             }
         });
