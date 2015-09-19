@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Conversor de Unidades</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="default_spinner">Selecciona una opción</string>
+    <string-array name="sa_area">
+        <item>yd² → m²</item>
+        <item>ft² → cm²</item>
+        <item>ha → acre</item>
+        <item>acre → ha</item>
+    </string-array>
+    <string-array name="sa_velocidad">
+        <item>mph → km/h</item>
+        <item>km/h → mph</item>
+        <item>ft/s → m/s</item>
+        <item>m/s → ft/s</item>
+    </string-array>
+    <string-array name="sa_masa">
+        <item>lb → kg</item>
+        <item>kg → lb</item>
+        <item>oz → g</item>
+        <item>g → oz</item>
+    </string-array>
+    <string-array name="sa_longitud">
+        <item>mi → km</item>
+        <item>km → mi</item>
+        <item>ft → cm</item>
+        <item>cm → ft</item>
+    </string-array>
+
+</resources>
