@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Income Tax Calculator (ISR)</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="calculation">Calculation:</string>
+    <string name="income">Income: $</string>
+    <string name="deductions">Deductions: $</string>
+    <string name="concept">Concept</string>
+    <string name="result">Result</string>
+    <string name="accumulated_income">Accumulated income</string>
+    <string name="accumulated_deductions">Accumulated deductions</string>
+    <string name="base">Base</string>
+    <string name="lower_limit">Lower limit</string>
+    <string name="excess">Excess</string>
+    <string name="rate">Rate %</string>
+    <string name="tax">Tax</string>
+    <string name="fixed_fee">Fixed fee</string>
+    <string name="tax_incurred">Tax incurred</string>
+    <string name="previous_payments">Previous payments</string>
+    <string name="withholding">Withholding</string>
+    <string name="tax_to_pay">Tax to pay</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="over">/</string>
+    <string name="times">*</string>
+    <string name="equals">=</string>
+    <string name="money">$</string>
+    <string name="arrow">→</string>
+    <string name="calculate">Calculate ISR</string>
+    <string-array name="calculation_periods">
+        <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Forthnightly</item>
+    </string-array>
+
+    <string name="name">Jesús Guillermo Salas Almendarez</string>
+</resources>
