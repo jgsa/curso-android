@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -118,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         initViews();
         context = MainActivity.this;
         ArrayAdapter<CharSequence> adapterCalculation = getAdapter(R.array.calculation_periods);
@@ -147,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("ISR - Getting values", "Previous payments = " + previousPayments);
                     calculaISR(income, previousPayments);
                     setTextViews();
-                    Log.e("ISR - Activity", "End of calculation");
+                    Log.d("ISR - Activity", "End of calculation");
                 } catch (NumberFormatException e) {
                     Log.e("ISR - Error", getResources().getString(R.string.error_invalid_income));
                     Toast.makeText(context, R.string.error_invalid_income, Toast.LENGTH_LONG).show();
@@ -159,17 +164,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setTextViews() {
+        Locale locale = new Locale("es", "MX");
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
         Log.d("ISR - UI", "Setting values to TextViews");
-        txtIncome.setText(getResources().getString(R.string.money) + income);
-        txtLowerLimit.setText(getResources().getString(R.string.money) + lowerLimit);
-        txtExcess.setText(getResources().getString(R.string.money) + excess);
+        txtIncome.setText(currencyFormatter.format(income));
+        txtLowerLimit.setText(currencyFormatter.format(lowerLimit));
+        txtExcess.setText(currencyFormatter.format(excess));
         txtRate.setText("" + rate);
-        txtTax.setText(getResources().getString(R.string.money) + tax);
-        txtFixedFee.setText(getResources().getString(R.string.money) + fixedFee);
-        txtIncurred.setText(getResources().getString(R.string.money) + taxIncurred);
-        txtPrevPayments.setText(getResources().getString(R.string.money) + previousPayments);
-        txtWithholding.setText(getResources().getString(R.string.money) + withholding);
-        txtISR.setText(getResources().getString(R.string.money) + tax_to_pay);
+        txtTax.setText(currencyFormatter.format(tax));
+        txtFixedFee.setText(currencyFormatter.format(fixedFee));
+        txtIncurred.setText(currencyFormatter.format(taxIncurred));
+        txtPrevPayments.setText(currencyFormatter.format(previousPayments));
+        txtWithholding.setText(currencyFormatter.format(withholding));
+        txtISR.setText(currencyFormatter.format(tax_to_pay));
     }
 
     private boolean emptyEdits() {
@@ -208,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         }
         excess = income - lowerLimit;
         Log.d("ISR - Calculating", "Excess = " + excess);
-        tax = excess * rate / 100;
+        tax = Math.round(excess * rate / 100);
         Log.d("ISR - Calculating", "Tax = " + tax);
         taxIncurred = tax + fixedFee;
         Log.d("ISR - Calculating", "Tax Incurred = " + taxIncurred);

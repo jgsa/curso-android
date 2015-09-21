@@ -5,9 +5,9 @@
     <string name="action_settings">Settings</string>
 
     <string name="calculation">Calculation:</string>
-    <string name="income">Income: $</string>
-    <string name="deductions">Deductions: $</string>
-    <string name="prev_payments">Prev. payments: $</string>
+    <string name="income">Income:</string>
+    <string name="deductions">Deductions:</string>
+    <string name="prev_payments">Prev. payments:</string>
     <string name="withholding_in">Withholding: $</string>
     <string name="concept">Concept</string>
     <string name="result">Result</string>
