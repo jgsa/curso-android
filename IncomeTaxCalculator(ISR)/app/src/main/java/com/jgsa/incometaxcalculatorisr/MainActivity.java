@@ -235,6 +235,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int searchInterval(float[][] matrix, float number){
+        if(number >= matrix[matrix.length-1][1]) {
+            Log.d("ISR - Calculating ", "Interval found: income > " + matrix[matrix.length-1][1] + "");
+            return matrix.length - 1;
+        }
         for (int i = 0; i < matrix.length; i++) {
             if(number >= matrix[i][1] && number <= matrix[i][2]) {
                 Log.d("ISR - Calculating ", "Interval found: [" + matrix[i][1] + "," + matrix[i][2] + "]");
