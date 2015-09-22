@@ -5,9 +5,9 @@
     <string name="action_settings">Settings</string>
 
     <string name="calculation">Calculation:</string>
-    <string name="income">Income:</string>
+    <string name="income">*Income:</string>
     <string name="deductions">Deductions:</string>
-    <string name="prev_payments">Prev. payments:</string>
+    <string name="prev_payments">*Prev. payments:</string>
     <string name="withholding_in">Withholding: $</string>
     <string name="concept">Concept</string>
     <string name="result">Result</string>
@@ -36,8 +36,10 @@
         <item>Weekly</item>
         <item>Fortnightly</item>
     </string-array>
+    <string name="zero">0.00</string>
 
     <string name="error_invalid_income">Invalid input. Please enter a valid number.</string>
+    <string name="error_isr_zero">Income not found in table. Tax to pay is 0</string>
 
 
     <string name="name">Jesús Guillermo Salas Almendarez</string>

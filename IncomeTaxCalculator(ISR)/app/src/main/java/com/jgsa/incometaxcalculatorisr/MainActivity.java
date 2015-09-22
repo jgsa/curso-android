@@ -227,11 +227,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setValues(float[][] matrix, float income) {
-        int row = searchInterval(matrix, income);
-        lowerLimit = matrix[row][0];
-        fixedFee = matrix[row][3];
-        rate = matrix[row][4];
-        withholding = matrix[row][5];
+        try {
+            int row = searchInterval(matrix, income);
+            lowerLimit = matrix[row][0];
+            fixedFee = matrix[row][3];
+            rate = matrix[row][4];
+            withholding = matrix[row][5];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            lowerLimit = 0;
+            fixedFee = 0;
+            rate = 0;
+            withholding = 0;
+            Log.e("ISR - Error", "Income is 0 => ISR is 0");
+            Toast.makeText(context, R.string.error_isr_zero, Toast.LENGTH_LONG).show();
+        }
     }
 
     private int searchInterval(float[][] matrix, float number){
