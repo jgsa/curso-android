@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Control Personalizado JGSA</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="albums">
+        <item>2.0 - Big Data</item>
+        <item>After the Disco - Broken Bells</item>
+        <item>Broken Bells - Broken Bells</item>
+        <item>Chutes Too Narrow - The Shins</item>
+        <item>Currents - Tame Impala</item>
+        <item>Get to Heaven - Everything Everything</item>
+        <item>La Di Da Di - Battles</item>
+        <item>Moth Boys - Spector</item>
+        <item>Neon Bible - Arcade Fire</item>
+        <item>Oh, Inverted World - The Shins</item>
+        <item>Port of Morrow - The Shins</item>
+        <item>Reflektor - Arcade Fire</item>
+        <item>Weezer (Blue Album) - Weezer</item>
+        <item>When You Land Here, It\'s Time to Return - Flake Music</item>
+        <item>Wincing the Night Away - The Shins</item>
+    </string-array>
+
+</resources>
