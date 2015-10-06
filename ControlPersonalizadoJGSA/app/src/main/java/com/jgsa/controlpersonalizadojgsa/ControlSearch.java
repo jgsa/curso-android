@@ -52,7 +52,11 @@ public class ControlSearch extends LinearLayout {
 
     public void setAdapter(List<String> items, int[] pictures, Context context) {
         //this.adapter = new ArrayAdapter<CharSequence>(context, android.R.layout.simple_list_item_1, items);
-        this.adapter = new MiAdaptador(context, 0, items, pictures);
+        List<ListItem> itemsList = new ArrayList<>();
+        for (int i = 0; i <items.size() ; i++) {
+            itemsList.add(new ListItem(pictures[i], items.get(i)));
+        }
+        this.adapter = new MiAdaptador(context, 0, itemsList);
         listItems.setAdapter(adapter);
     }
 
